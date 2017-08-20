@@ -36,7 +36,7 @@ function readFP2(buf, offset, noAssert) {
   const e = (buf[offset] & 0x6) >>> 1;
   const m = (buf[offset] & 0x1) << 12 | (buf[offset + 1] & MASK) << 6 | buf[offset + 2] & MASK;
 
-  // NOTE: In theory the following nice, but it introduces rounding errors
+  // NOTE: In theory the following is nice, but it introduces rounding errors
   // if (m < 8000) return Math.pow(-1, s) * Math.pow(10, -e) * m
 
   if (m < 8000) {
